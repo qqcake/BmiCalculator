@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.bigcake.bmicalculator.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        tools:context=".ui.main.MainFragment">
+
+        <TextView
+            android:id="@+id/bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewmodel.bmi)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.bigcake.bmicalculator.ui.main.ValueCardView
+            android:id="@+id/weight_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> viewmodel.onWeightChanged()}"
+            android:padding="4dp"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bmi"
+            app:layout_constraintWidth_percent="0.5"
+            app:title="@string/card_title_weight"
+            app:value="@{viewmodel.weight}" />
+
+        <com.bigcake.bmicalculator.ui.main.ValueCardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> viewmodel.onHeightChanged()}"
+            android:padding="4dp"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/weight_card"
+            app:layout_constraintTop_toBottomOf="@id/bmi"
+            app:layout_constraintWidth_percent="0.5"
+            app:title="@string/card_title_height"
+            app:value="@{viewmodel.height}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

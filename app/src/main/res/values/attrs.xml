@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="ValueCardView">
+        <attr name="title" format="string" />
+        <attr name="value" format="integer" />
+        <attr name="step" format="integer" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="card_title_weight">Weight</string>
+    <string name="card_title_height">Height</string>
+    <string name="nav_label_calculator">Calculator</string>
+    <string name="nav_label_history">History</string>
+</resources>
