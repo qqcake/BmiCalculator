@@ -29,32 +29,43 @@
 
         <com.bigcake.bmicalculator.ui.main.ValueCardView
             android:id="@+id/weight_card"
+            style="@style/Widget.Theme.BmiCalculator.ValueCardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{(view) -> viewmodel.onWeightChanged()}"
-            android:padding="4dp"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="16dp"
+            app:layout_constraintEnd_toStartOf="@id/spacer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bmi"
-            app:layout_constraintWidth_percent="0.5"
             app:title="@string/card_title_weight"
             app:value="@{viewmodel.weight}" />
 
+        <Space
+            android:id="@+id/spacer"
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/height_card"
+            app:layout_constraintStart_toEndOf="@id/weight_card"
+            app:layout_constraintTop_toBottomOf="@id/bmi" />
+
         <com.bigcake.bmicalculator.ui.main.ValueCardView
+            android:id="@+id/height_card"
+            style="@style/Widget.Theme.BmiCalculator.ValueCardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:onClick="@{(view) -> viewmodel.onHeightChanged()}"
-            android:padding="4dp"
-            app:cardCornerRadius="16dp"
-            app:cardUseCompatPadding="true"
-            app:contentPadding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/weight_card"
+            app:layout_constraintStart_toEndOf="@id/spacer"
             app:layout_constraintTop_toBottomOf="@id/bmi"
-            app:layout_constraintWidth_percent="0.5"
             app:title="@string/card_title_height"
             app:value="@{viewmodel.height}" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Calculate"
+            android:textAllCaps="false"
+            app:cornerRadius="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weight_card" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
