@@ -15,13 +15,13 @@ class MainViewModel : ViewModel() {
     private var _bmi = MutableStateFlow(0f)
     val bmi = _bmi.asStateFlow()
 
-    fun onWeightChanged() {
-        _weight.value = weight.value.inc()
+    fun onWeightChangedBy(amount: Int) {
+        _weight.value += amount
         updateBmi()
     }
 
-    fun onHeightChanged() {
-        _height.value = height.value.inc()
+    fun onHeightChangedBy(amount: Int) {
+        _height.value += amount
         updateBmi()
     }
 
