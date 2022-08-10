@@ -3,13 +3,13 @@ package com.bigcake.bmicalculator.ui.main
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import com.bigcake.bmicalculator.R
 import com.bigcake.bmicalculator.databinding.ViewValueCardBinding
+import com.google.android.material.card.MaterialCardView
 
-class ValueCardView : CardView {
+class ValueCardView : MaterialCardView {
     private var binding: ViewValueCardBinding = DataBindingUtil.inflate(
         LayoutInflater.from(context),
         R.layout.view_value_card,

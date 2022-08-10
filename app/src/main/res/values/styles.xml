@@ -1,6 +1,10 @@
 <resources>
 
-    <style name="Widget.Theme.BmiCalculator.MyView" parent="">
-        <item name="android:background">@color/gray_400</item>
+    <style name="Widget.Theme.BmiCalculator.ValueCardView" parent="">
+        <!--        <item name="cardBackgroundColor">#ddd</item>-->
+<!--        <item name="strokeWidth">1dp</item>-->
+<!--        <item name="strokeColor">#f00</item>-->
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
     </style>
 </resources>
