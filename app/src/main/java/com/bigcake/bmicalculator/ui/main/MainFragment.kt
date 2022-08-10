@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.bigcake.bmicalculator.R
 import com.bigcake.bmicalculator.databinding.FragmentMainBinding
-import com.bigcake.bmicalculator.ui.main.ValueCardView.OnActionButtonClickedListener.Action
+import kotlinx.android.synthetic.main.view_value_card.view.*
 
 class MainFragment : Fragment() {
     companion object {
@@ -34,18 +34,10 @@ class MainFragment : Fragment() {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        binding.weightCard.onActionButtonClickedListener =
-            object : ValueCardView.OnActionButtonClickedListener {
-                override fun onActionButtonClicked(action: Action) {
-                    viewModel.onWeightChangedBy(if (action == Action.PLUS) 1 else -1)
-                }
-            }
-        binding.heightCard.onActionButtonClickedListener =
-            object : ValueCardView.OnActionButtonClickedListener {
-                override fun onActionButtonClicked(action: Action) {
-                    viewModel.onHeightChangedBy(if (action == Action.PLUS) 1 else -1)
-                }
-            }
+        binding.weightCard.plus.setOnClickListener { viewModel.onWeightChangedBy(1) }
+        binding.weightCard.minus.setOnClickListener { viewModel.onWeightChangedBy(-1) }
+        binding.heightCard.plus.setOnClickListener { viewModel.onHeightChangedBy(1) }
+        binding.heightCard.minus.setOnClickListener { viewModel.onHeightChangedBy(-1) }
     }
 
     override fun onDestroyView() {

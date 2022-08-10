@@ -7,7 +7,6 @@ import java.math.RoundingMode
 import kotlin.math.pow
 
 class MainViewModel : ViewModel() {
-    //    private val bmiFormat by lazy { DecimalFormat("#.##") }
     private var _weight = MutableStateFlow(50)
     val weight = _weight.asStateFlow()
     private var _height = MutableStateFlow(175)
